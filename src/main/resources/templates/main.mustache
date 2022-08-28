@@ -4,10 +4,17 @@
     <title>SocialNetwork</title>
 </head>
 <body>
+<div>
+    <form action="/logout" method="post">
+        <input type="hidden" name="_csrf" value="{{_csrf.token}}">
+        <input type="submit" value="Sign Out"/>
+    </form>
+</div>
     <div>
         <form method="post">
             <input type="text" name="text" placeholder="Enter message">
             <input type="text" name="tag" placeholder="Enter tag">
+            <input type="hidden" name="_csrf" value="{{_csrf.token}}">
             <button type="submit">Add</button>
         </form>
     </div>
@@ -18,6 +25,7 @@
             <option>text</option>
             <option>tag</option>
         </select>
+        <input type="hidden" name="_csrf" value="{{_csrf.token}}">
         <button type="submit">Search</button>
     </form>
     {{#messages}}
